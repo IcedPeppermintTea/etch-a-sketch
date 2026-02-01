@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: purple;
+    height: 80vmin;
+    width: 80vmin;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-child {
+    background-color: rgb(233, 228, 218);
+    border: 1px solid rgb(216, 209, 209);
+    flex: 1 0 6.25%;
+    aspect-ratio: 1 / 1;
+}
