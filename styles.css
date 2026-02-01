@@ -2,8 +2,16 @@
     box-sizing: border-box;
 }
 
+.sketch-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .container {
-    background-color: rgb(233, 228, 218);
+    background-color: rgb(244, 243, 252);
+    border: 5px solid rgb(179, 179, 189);
     height: 80vmin;
     width: 80vmin;
     display: flex;
