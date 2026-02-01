@@ -1,7 +1,7 @@
 /*Setup*/
 // Variables
 const container = document.querySelector(".container");
-const defaultSquareColor = "rgb(233, 228, 218)";
+const defaultSquareColor = "rgba(0, 0, 0, 0)";
 
 // Grid
 let rows = 16;
@@ -37,8 +37,21 @@ function generateRandomColor() {
     let green = Math.floor(Math.random() * 256);
     let blue = Math.floor(Math.random() * 256);
 
-    colorVar = `rgb(${red}, ${green}, ${blue})`;
+    colorVar = `rgba(${red}, ${green}, ${blue})`;
     return colorVar;
+}
+
+/*
+Reduce opacity of given color
+Until fully opaque
+*/
+function increaseOpacity(opacity) {
+    if (opacity != "1") {
+        let increase = parseFloat(opacity);
+        increase += 0.2;
+        opacity = String(increase);
+    }
+    return opacity;
 }
 
 /*
@@ -47,16 +60,16 @@ Based on the state of the square
 */
 function changeColor(e) {
     let currentSquareColor = getComputedStyle(e.target).backgroundColor;
-
-    //console.log(currentSquareColor);
+    let currentOpacity = getComputedStyle(e.target).opacity;
     
     // if first time -> random color
     if (currentSquareColor == defaultSquareColor) {
         e.target.style.backgroundColor = generateRandomColor();
-        console.log(currentSquareColor);
+        e.target.style.opacity = "0.1";
     }
-    else { // if already colored - deepen color
-        currentSquareColor = darkenColor();
+    // if already colored - deepen color
+    else { 
+        e.target.style.opacity = increaseOpacity(currentOpacity);
     }
 }
 
@@ -70,6 +83,3 @@ container.addEventListener("mouseover", (e) => {
 
     changeColor(e);
 });
-
- // randomly change the color of the div
- // deepen the color by 10% when hovering again

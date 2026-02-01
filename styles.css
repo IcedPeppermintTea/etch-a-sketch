@@ -3,7 +3,7 @@
 }
 
 .container {
-    background-color: purple;
+    background-color: rgb(233, 228, 218);
     height: 80vmin;
     width: 80vmin;
     display: flex;
@@ -11,8 +11,10 @@
 }
 
 .container-child {
-    background-color: rgb(233, 228, 218);
-    border: 1px solid rgb(216, 209, 209);
+    background-color: rgba(0, 0, 0, 0);
+    /*transparent*/
+    opacity: 0;
+    border: 1px solid rgb(216, 209, 209, );
     flex: 1 0 6.25%;
     aspect-ratio: 1 / 1;
 }
