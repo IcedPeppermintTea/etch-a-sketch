@@ -1,13 +1,59 @@
-* {
+body {
     box-sizing: border-box;
+    background-color: rgb(62, 13, 196);
+    padding: 25px;
+}
+
+.white {
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: "Dancing Script", sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 25px;
+    font-family: "Poiret One", sans-serif;
+}
+
+p {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 600;
 }
 
 .sketch-grid {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
     align-items: center;
-
 }
+
+.sketch-grid button {
+    background-color: rgba(255, 121, 59);
+    border-radius: 5px 5px;
+    border: none;
+    max-width: 150px;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-weight: 700;
+}
+
+.sketch-grid button:hover {
+    background-color: rgba(255, 91, 15);
+}
+
+.grid-button-clicked {
+    /* must be added w/ JS */
+    background-color: rgba(228, 72, 0);
+}
+
+.line-text {}
+
 
 .container {
     background-color: rgb(244, 243, 252);
@@ -25,4 +71,24 @@
     border: 1px solid rgb(216, 209, 209, );
     flex: 1 0 6.25%;
     aspect-ratio: 1 / 1;
+}
+
+.popup {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 25px;
+    visibility: hidden;
+}
+
+.grid-forms {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
+    font-weight: 700;
 }

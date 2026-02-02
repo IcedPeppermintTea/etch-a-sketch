@@ -2,6 +2,8 @@
 // Variables
 const container = document.querySelector(".container");
 const defaultSquareColor = "rgba(0, 0, 0, 0)";
+const gridButton = document.querySelector(".sketch-grid button");
+const newGridPopup = document.querySelector(".popup");
 
 // Grid
 let rows = 16;
@@ -83,3 +85,7 @@ container.addEventListener("mouseover", (e) => {
 
     changeColor(e);
 });
+
+gridButton.addEventListener("click", (e) => {
+    newGridPopup.style.visibility = "visible";
+})
