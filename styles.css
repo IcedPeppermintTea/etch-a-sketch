@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+.sketch-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    background-color: rgb(244, 243, 252);
+    border: 5px solid rgb(179, 179, 189);
+    height: 80vmin;
+    width: 80vmin;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-child {
+    background-color: rgba(0, 0, 0, 0);
+    /*transparent*/
+    opacity: 0;
+    border: 1px solid rgb(216, 209, 209, );
+    flex: 1 0 6.25%;
+    aspect-ratio: 1 / 1;
+}
