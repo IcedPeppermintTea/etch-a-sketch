@@ -2,19 +2,27 @@
 // Variables
 const container = document.querySelector(".container");
 const defaultSquareColor = "rgba(0, 0, 0, 0)";
+const gridButton = document.querySelector(".sketch-grid button");
+const newGridPopup = document.querySelector(".popup");
+const submitButton = document.querySelector("#submit");
+const cancelButton = document.querySelector("#cancel");
+const rowForm = document.querySelector("#rows");
+const columnForm = document.querySelector("#columns");
 
 // Grid
 let rows = 16;
 let columns = 16;
 
-const grid = [];
+let grid = [];
 
 /*
 Generate Grid of 'div' elements
 Number of divs are based off rows and columns
 */
 function createGrid(grid, rows, columns) {
-    // Create 16x16 grid of square divs
+    container.style.visibility = "visible";
+
+    // Create grid of square divs
     for (let i = 0; i < rows; i++)
     {
         grid[i] = []; // make each row an array
@@ -24,8 +32,19 @@ function createGrid(grid, rows, columns) {
             grid[i][j] = document.createElement("div");
             container.appendChild(grid[i][j]);
             grid[i][j].classList.add("container-child");
+            grid[i][j].style.flexBasis = `${(100/columns).toFixed(2)}%`;
+            console.log(grid[i][j].style.flexBasis);
         }
     }
+}
+
+/*
+Delete the children of current grid
+*/
+function deleteGrid(grid) {
+    container.replaceChildren();
+    grid = []; // clear the grid array
+    container.style.visibility = "hidden";
 }
 
 /*
@@ -76,10 +95,46 @@ function changeColor(e) {
 /* main */
 createGrid(grid, rows, columns);
 
-// on Hover call changeColor():
+// When the mouse hovers over the grid - color the squares
 container.addEventListener("mouseover", (e) => {
     // filter as event fires for parent too
     if (!e.target.classList.contains("container-child")) return;
 
     changeColor(e);
 });
+
+// When 'New Grid' button is clicked - open popup modal
+gridButton.addEventListener("click", () => {
+    newGridPopup.style.visibility = "visible";
+})
+
+// When the 'Cancel' button is clicked - close popup modal
+cancelButton.addEventListener("click", () => {
+    newGridPopup.style.visibility = "hidden";
+})
+
+// Prevent default behavior of forms
+newGridPopup.querySelectorAll("form").forEach(form => {
+    form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+
+    // store form values in variables
+    rows = rowForm.value.trim();
+    columns = columnForm.value.trim();
+
+    console.log(rows);
+    console.log(rows);
+
+    // clear forms
+    rowForm.value = "";
+    columnForm.value = "";
+
+    // hide and exit popup
+    newGridPopup.style.visibility = "hidden";
+
+    // Create new grid with new values
+    deleteGrid(grid);
+    createGrid(grid, rows, columns);
+    })
+})
+
