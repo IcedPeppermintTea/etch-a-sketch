@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    background-color: rgb(62, 13, 196);
+    background: linear-gradient(#5424bf, #260ed6);
     padding: 25px;
 }
 
@@ -52,7 +52,20 @@ p {
     background-color: rgba(228, 72, 0);
 }
 
-.line-text {}
+.line-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 70vmin;
+}
+
+.line-text hr {
+    flex: 1;
+    height: 1px;
+    border: none;
+    background-color: #ccc;
+}
 
 
 .container {
@@ -80,8 +93,10 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid black;
+    border-radius: 5px;
     padding: 25px;
-    visibility: hidden;
+    visibility: visible;
+    box-shadow: 0px 0px 10px 5px rgb(183, 171, 190);
 }
 
 .grid-forms {
@@ -91,4 +106,15 @@ p {
     align-items: center;
     flex: 1;
     font-weight: 700;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+}
+
+.hidden {
+    visibility: hidden;
 }

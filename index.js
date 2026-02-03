@@ -8,6 +8,7 @@ const submitButton = document.querySelector("#submit");
 const cancelButton = document.querySelector("#cancel");
 const rowForm = document.querySelector("#rows");
 const columnForm = document.querySelector("#columns");
+const overlay = document.querySelector(".overlay");
 
 // Grid
 let rows = 16;
@@ -92,6 +93,29 @@ function changeColor(e) {
     }
 }
 
+function submitForms() {
+    // store form values in variables
+    rows = rowForm.value.trim();
+    columns = columnForm.value.trim();
+
+    // Validate values
+    if (rows == "" || columns == "") {
+        return;
+    }
+
+    // clear forms
+    rowForm.value = "";
+    columnForm.value = "";
+
+    // hide and exit popup
+    newGridPopup.style.visibility = "hidden";
+    overlay.classList.add("hidden");
+
+    // Create new grid with new values
+    deleteGrid(grid);
+    createGrid(grid, rows, columns); 
+}
+
 /* main */
 createGrid(grid, rows, columns);
 
@@ -106,35 +130,22 @@ container.addEventListener("mouseover", (e) => {
 // When 'New Grid' button is clicked - open popup modal
 gridButton.addEventListener("click", () => {
     newGridPopup.style.visibility = "visible";
+    overlay.classList.remove("hidden");
 })
 
 // When the 'Cancel' button is clicked - close popup modal
 cancelButton.addEventListener("click", () => {
     newGridPopup.style.visibility = "hidden";
+    overlay.classList.add("hidden");
 })
+
+
 
 // Prevent default behavior of forms
 newGridPopup.querySelectorAll("form").forEach(form => {
     form.addEventListener("submit", (e)=> {
     e.preventDefault();
 
-    // store form values in variables
-    rows = rowForm.value.trim();
-    columns = columnForm.value.trim();
-
-    console.log(rows);
-    console.log(rows);
-
-    // clear forms
-    rowForm.value = "";
-    columnForm.value = "";
-
-    // hide and exit popup
-    newGridPopup.style.visibility = "hidden";
-
-    // Create new grid with new values
-    deleteGrid(grid);
-    createGrid(grid, rows, columns);
+    submitForms();
     })
 })
-

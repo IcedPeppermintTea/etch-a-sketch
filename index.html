@@ -26,6 +26,8 @@
         <div class="container"></div>
     </section>
 
+    <div class="overlay hidden"></div>
+
     <section class="popup">
         <div class="window">
             <h2>Generate New Grid</h2>
@@ -35,17 +37,15 @@
                 <form>
                     <label>Rows (1-100):</label>
                     <input type="number" min="1" max="100" id="rows" />
-                </form>
 
-                <!--Get Columns-->
-                <form>
+                    <!--Get Columns-->
                     <label>Columns (1-100):</label>
                     <input type="number" min="1" max="100" id="columns" />
+
+                    <button type="submit" id="submit">Create</button>
                 </form>
-                <button type="submit" id="submit">Create</button>
                 <button type="button" id="cancel">Cancel</button>
             </div>
-
         </div>
     </section>
 </body>
