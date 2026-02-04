@@ -21,8 +21,6 @@ Generate Grid of 'div' elements
 Number of divs are based off rows and columns
 */
 function createGrid(grid, rows, columns) {
-    container.style.visibility = "visible";
-
     // Create grid of square divs
     for (let i = 0; i < rows; i++)
     {
@@ -45,7 +43,6 @@ Delete the children of current grid
 function deleteGrid(grid) {
     container.replaceChildren();
     grid = []; // clear the grid array
-    container.style.visibility = "hidden";
 }
 
 /*
@@ -108,7 +105,7 @@ function submitForms() {
     columnForm.value = "";
 
     // hide and exit popup
-    newGridPopup.style.visibility = "hidden";
+    newGridPopup.classList.add("hidden");
     overlay.classList.add("hidden");
 
     // Create new grid with new values
@@ -129,13 +126,13 @@ container.addEventListener("mouseover", (e) => {
 
 // When 'New Grid' button is clicked - open popup modal
 gridButton.addEventListener("click", () => {
-    newGridPopup.style.visibility = "visible";
+    newGridPopup.classList.remove("hidden");
     overlay.classList.remove("hidden");
 })
 
 // When the 'Cancel' button is clicked - close popup modal
 cancelButton.addEventListener("click", () => {
-    newGridPopup.style.visibility = "hidden";
+    newGridPopup.classList.add("hidden");
     overlay.classList.add("hidden");
 })
 
