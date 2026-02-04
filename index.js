@@ -59,8 +59,8 @@ function generateRandomColor() {
 }
 
 /*
-Reduce opacity of given color
-Until fully opaque
+Increase opacity of given color
+Until fully visible
 */
 function increaseOpacity(opacity) {
     if (opacity != "1") {

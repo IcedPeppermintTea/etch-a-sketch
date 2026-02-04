@@ -1,5 +1,11 @@
-body {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+
+body {
     background: linear-gradient(#5424bf, #260ed6);
     padding: 25px;
 }
@@ -48,11 +54,6 @@ p {
     background-color: rgba(255, 91, 15);
 }
 
-.grid-button-clicked {
-    /* must be added w/ JS */
-    background-color: rgba(228, 72, 0);
-}
-
 .line-text {
     display: flex;
     align-items: center;
@@ -71,7 +72,7 @@ p {
 
 .container {
     background-color: rgb(244, 243, 252);
-    border: 5px solid rgb(179, 179, 189);
+    border: 5px solid rgb(160, 160, 167);
     height: 70vmin;
     width: 70vmin;
     display: flex;
@@ -81,8 +82,7 @@ p {
 .container-child {
     background-color: rgba(0, 0, 0, 0);
     /*transparent*/
-    opacity: 0;
-    border: 1px solid rgb(216, 209, 209, );
+    border: 1px solid rgba(194, 192, 197, 0.2);
     flex: 1 0 6.25%;
     aspect-ratio: 1 / 1;
 }
