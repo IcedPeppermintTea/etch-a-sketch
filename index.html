@@ -26,26 +26,31 @@
         <div class="container"></div>
     </section>
 
-    <section class="popup">
+    <div class="overlay hidden"></div>
+
+    <section class="popup hidden">
         <div class="window">
             <h2>Generate New Grid</h2>
             <p>Choose size of the new grid</p>
             <div class="grid-forms">
                 <!--Get Rows-->
                 <form>
-                    <label>Rows (1-100):</label>
-                    <input type="number" min="1" max="100" id="rows" />
-                </form>
+                    <div class="input-style">
+                        <label>Rows (1-100):</label>
+                        <input type="number" min="1" max="100" id="rows" />
+                    </div>
 
-                <!--Get Columns-->
-                <form>
-                    <label>Columns (1-100):</label>
-                    <input type="number" min="1" max="100" id="columns" />
+
+                    <!--Get Columns-->
+                    <div class="input-style">
+                        <label>Columns (1-100):</label>
+                        <input type="number" min="1" max="100" id="columns" />
+                    </div>
+
+                    <button type="submit" id="submit">Create</button>
                 </form>
-                <button type="submit" id="submit">Create</button>
                 <button type="button" id="cancel">Cancel</button>
             </div>
-
         </div>
     </section>
 </body>

@@ -8,6 +8,7 @@ const submitButton = document.querySelector("#submit");
 const cancelButton = document.querySelector("#cancel");
 const rowForm = document.querySelector("#rows");
 const columnForm = document.querySelector("#columns");
+const overlay = document.querySelector(".overlay");
 
 // Grid
 let rows = 16;
@@ -20,8 +21,6 @@ Generate Grid of 'div' elements
 Number of divs are based off rows and columns
 */
 function createGrid(grid, rows, columns) {
-    container.style.visibility = "visible";
-
     // Create grid of square divs
     for (let i = 0; i < rows; i++)
     {
@@ -44,7 +43,6 @@ Delete the children of current grid
 function deleteGrid(grid) {
     container.replaceChildren();
     grid = []; // clear the grid array
-    container.style.visibility = "hidden";
 }
 
 /*
@@ -61,8 +59,8 @@ function generateRandomColor() {
 }
 
 /*
-Reduce opacity of given color
-Until fully opaque
+Increase opacity of given color
+Until fully visible
 */
 function increaseOpacity(opacity) {
     if (opacity != "1") {
@@ -84,12 +82,35 @@ function changeColor(e) {
     // if first time -> random color
     if (currentSquareColor == defaultSquareColor) {
         e.target.style.backgroundColor = generateRandomColor();
-        e.target.style.opacity = "0.1";
+        e.target.style.opacity = "0.2";
     }
     // if already colored - deepen color
     else { 
         e.target.style.opacity = increaseOpacity(currentOpacity);
     }
+}
+
+function submitForms() {
+    // store form values in variables
+    rows = rowForm.value.trim();
+    columns = columnForm.value.trim();
+
+    // Validate values
+    if (rows == "" || columns == "") {
+        return;
+    }
+
+    // clear forms
+    rowForm.value = "";
+    columnForm.value = "";
+
+    // hide and exit popup
+    newGridPopup.classList.add("hidden");
+    overlay.classList.add("hidden");
+
+    // Create new grid with new values
+    deleteGrid(grid);
+    createGrid(grid, rows, columns); 
 }
 
 /* main */
@@ -105,36 +126,23 @@ container.addEventListener("mouseover", (e) => {
 
 // When 'New Grid' button is clicked - open popup modal
 gridButton.addEventListener("click", () => {
-    newGridPopup.style.visibility = "visible";
+    newGridPopup.classList.remove("hidden");
+    overlay.classList.remove("hidden");
 })
 
 // When the 'Cancel' button is clicked - close popup modal
 cancelButton.addEventListener("click", () => {
-    newGridPopup.style.visibility = "hidden";
+    newGridPopup.classList.add("hidden");
+    overlay.classList.add("hidden");
 })
+
+
 
 // Prevent default behavior of forms
 newGridPopup.querySelectorAll("form").forEach(form => {
     form.addEventListener("submit", (e)=> {
     e.preventDefault();
 
-    // store form values in variables
-    rows = rowForm.value.trim();
-    columns = columnForm.value.trim();
-
-    console.log(rows);
-    console.log(rows);
-
-    // clear forms
-    rowForm.value = "";
-    columnForm.value = "";
-
-    // hide and exit popup
-    newGridPopup.style.visibility = "hidden";
-
-    // Create new grid with new values
-    deleteGrid(grid);
-    createGrid(grid, rows, columns);
+    submitForms();
     })
 })
-

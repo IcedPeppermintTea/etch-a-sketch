@@ -1,7 +1,19 @@
-body {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    background-color: rgb(62, 13, 196);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(#5424bf, #260ed6);
     padding: 25px;
+    min-height: 100vh;
 }
 
 .white {
@@ -12,11 +24,13 @@ h1 {
     font-size: 50px;
     font-family: "Dancing Script", sans-serif;
     font-weight: 700;
+    margin: 15px;
 }
 
 h2 {
     font-size: 25px;
     font-family: "Poiret One", sans-serif;
+    margin: 0px;
 }
 
 p {
@@ -28,7 +42,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 25px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -47,17 +61,26 @@ p {
     background-color: rgba(255, 91, 15);
 }
 
-.grid-button-clicked {
-    /* must be added w/ JS */
-    background-color: rgba(228, 72, 0);
+.line-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 70vmin;
 }
 
-.line-text {}
+.line-text hr {
+    flex: 1;
+    height: 1px;
+    border: none;
+    background-color: #ccc;
+}
 
 
 .container {
     background-color: rgb(244, 243, 252);
-    border: 5px solid rgb(179, 179, 189);
+    border: 5px solid rgb(160, 160, 167);
+    border-radius: 5px;
     height: 70vmin;
     width: 70vmin;
     display: flex;
@@ -67,28 +90,86 @@ p {
 .container-child {
     background-color: rgba(0, 0, 0, 0);
     /*transparent*/
-    opacity: 0;
-    border: 1px solid rgb(216, 209, 209, );
+    border: 1px solid rgba(194, 192, 197, 0.2);
     flex: 1 0 6.25%;
     aspect-ratio: 1 / 1;
 }
 
 .popup {
+    max-width: 600px;
+    width: 100%;
     background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
-    padding: 25px;
-    visibility: hidden;
+    border: 2px solid #814eee;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 5px rgb(183, 171, 190);
 }
 
 .grid-forms {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    flex: 1;
+    font-family: "Poiret One", sans-serif;
     font-weight: 700;
+}
+
+.grid-forms form {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#submit {
+    background-color: #5424bf;
+    border-radius: 5px 5px;
+    border: none;
+    max-width: 100px;
+    width: 100%;
+    padding: 7px;
+    color: white;
+    font-weight: 700;
+    margin: 20px;
+}
+
+#cancel {
+    background-color: rgba(255, 121, 59);
+    border-radius: 5px 5px;
+    border: none;
+    max-width: 100px;
+    width: 100%;
+    padding: 7px;
+    color: white;
+    font-weight: 700;
+    margin: 10px;
+}
+
+#submit:hover,
+#cancel:hover {
+    box-shadow: 0px 0px 10px 5px rgb(183, 171, 190);
+}
+
+.input-style {
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    gap: 10px;
+}
+
+.input-style input {
+    border: 1px solid #c6b2f3;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px 1px rgb(183, 171, 190);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+}
+
+.hidden {
+    display: none;
 }
