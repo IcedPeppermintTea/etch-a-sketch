@@ -82,7 +82,7 @@ function changeColor(e) {
     // if first time -> random color
     if (currentSquareColor == defaultSquareColor) {
         e.target.style.backgroundColor = generateRandomColor();
-        e.target.style.opacity = "0.1";
+        e.target.style.opacity = "0.2";
     }
     // if already colored - deepen color
     else { 
