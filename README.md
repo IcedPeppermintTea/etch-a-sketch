@@ -1,19 +1,35 @@
-# etch-a-sketch
-[link](https://icedpepperminttea.github.io/etch-a-sketch/)
+# Etch-a-Sketch
 
-## Description
-A browser-based drawing grid where users can color through the hover action. 
-The program allows users to customize the grid to any size up to 100x100 pixels.
+A browser-based drawing grid where users can color through the hover action. The program allows users to customize the grid to any size up to 100x100 pixels.
 
-## Built With
-* HTML
-* CSS
-* JavaScript
+[Live Demo](https://icedpepperminttea.github.io/etch-a-sketch/)
 
-## Backlog
-1. CSS can be improved overall
-2. ask for feedback
-3. improve comments
-4. change opacity to transparency 
-5. color picker tool
-6. eraser option
+## Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+- [Roadmap](#roadmap)
+
+---
+
+## About
+
+A browser-based drawing grid where users can color through the hover action. The program allows users to customize the grid to any size up to 100x100 pixels.
+
+## Getting Started
+
+### Prerequisites
+
+- HTML
+- CSS
+- JavaScript
+
+## Roadmap
+
+- [ ] Improve CSS overall
+- [ ] Ask for feedback
+- [ ] Improve comments
+- [ ] Change opacity to transparency
+- [ ] Color picker tool
+- [ ] Eraser option
